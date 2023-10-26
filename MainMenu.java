@@ -17,7 +17,11 @@ public class MainMenu {
     public JPanel generateMenu() {
         
         JPanel menuPanel = new JPanel();
-        menuPanel.setLayout(new FlowLayout(FlowLayout.TRAILING));
+        menuPanel.setLayout(new GridBagLayout());
+
+
+
+
         Color mainBg = new Color(250, 248, 237);
         menuPanel.setBackground(mainBg);
 

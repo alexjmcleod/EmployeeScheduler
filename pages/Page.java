@@ -6,7 +6,7 @@ import javax.swing.text.BadLocationException;
 public class Page {
     
     String pageTitle;
-    String mainContent;
+    String pageBody;
 
     int titleFontSize = 24;
 
@@ -19,40 +19,37 @@ public class Page {
         pageTitle = newPageTitle;
     }
 
-    public Page(String newPageTitle, String newMainContent) {
+    public Page(String newPageTitle, String newPageBody) {
         pageTitle = newPageTitle;
-        mainContent = newMainContent;
+        pageBody = newPageBody;
     }
 
     // Generate page elements
     public JPanel generatePage() {
         
-        Color mainBg = new Color(250, 248, 237);
+       JPanel thisPage = new JPanel(); 
+       thisPage.setLayout(new BoxLayout(thisPage, BoxLayout.Y_AXIS));
+       Color mainBg = new Color(250, 248, 237);
+       thisPage.setBackground(mainBg);
 
-        // Page container
-        JPanel thisPage = new JPanel();
-        thisPage.setLayout(new BoxLayout(thisPage, BoxLayout.Y_AXIS));
-        thisPage.setBackground(mainBg);
-        
-        // Page title
-        JTextArea title = new JTextArea();
-        Font titleFont = new Font("serif", Font.BOLD, titleFontSize);
-        title.setFont(titleFont);
-        title.setBackground(mainBg);
+       // Configure page title
+       JTextPane thisTitle = new JTextPane();
 
-        // Main content
-        JTextArea content = new JTextArea();
-        content.setBackground(mainBg);
 
+       // Configure page body
+       JTextPane thisBody = new JTextPane();
+
+
+       // Add text to JTextPanes
         try {
-            content.getDocument().insertString(0, mainContent, null);
-            title.getDocument().insertString(0, pageTitle, null);
+            thisTitle.getStyledDocument().insertString(0, pageTitle, null);
+            thisBody.getStyledDocument().insertString(0, pageBody, null);
         } catch (BadLocationException e) {
             e.printStackTrace();
-        } 
+        }
 
-        thisPage.add(title);
-        thisPage.add(content);
+        thisPage.add(thisTitle);
+        thisPage.add(thisBody);
 
         return thisPage;
 
@@ -65,16 +62,16 @@ public class Page {
         return pageTitle;
     }
 
-    public String mainContent() {
-        return mainContent;
+    public String getPageBody() {
+        return pageBody;
     }
 
     public void setPageTitle(String newPageTitle) {
         pageTitle = newPageTitle;
     }
 
-    public void setMainContent(String newMainContent) {
-        mainContent = newMainContent;
+    public void setMainContent(String newPageBody) {
+        pageBody = newPageBody;
     }
 
 
