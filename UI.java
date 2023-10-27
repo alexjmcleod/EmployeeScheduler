@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
-import pages.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.BadLocationException;
 
 public class UI {
 
@@ -30,6 +30,28 @@ public class UI {
         mainPanel.setBackground(mainBg);
         mainFrame.add(mainPanel);
 
+        // Get the logo and add to mainPanel
+        JPanel logo = new JPanel();
+
+        JTextPane thisLogo = new JTextPane();
+        try {
+            thisLogo.getStyledDocument().insertString(0, "Employee Scheduler", null);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+
+        logo.add(thisLogo);
+
+        GridBagConstraints logoConstraints = new GridBagConstraints();
+        logoConstraints.weightx = 0;
+        logoConstraints.weighty = 0;
+        logoConstraints.gridx = 0;
+        logoConstraints.gridy = 0;
+        logoConstraints.gridwidth = 3;
+        logoConstraints.gridheight = 1;
+        logoConstraints.anchor = GridBagConstraints.NORTHWEST;
+        mainPanel.add(logo, logoConstraints);
+
         
         // Get menu and add to mainPanel
         JPanel mainMenu = new MainMenu().generateMenu();
@@ -46,8 +68,8 @@ public class UI {
 
         // Get the welcome page and display it
         Page welcome = new Page(
-            "Welcome to the Employee Scheduler app.\n\n",
-             "Use the buttons...");
+            "Welcome to the Employee Scheduler app.\n",
+             "Use the menu at the top of the screen to complete tasks.\n\nFor help, visit the Help page.");
         
         GridBagConstraints pageConstraints = new GridBagConstraints();
         pageConstraints.weightx = 100;

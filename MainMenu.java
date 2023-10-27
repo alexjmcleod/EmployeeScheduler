@@ -18,10 +18,7 @@ public class MainMenu {
         
         JPanel menuPanel = new JPanel();
         menuPanel.setLayout(new GridBagLayout());
-
-
-
-
+        
         Color mainBg = new Color(250, 248, 237);
         menuPanel.setBackground(mainBg);
 
