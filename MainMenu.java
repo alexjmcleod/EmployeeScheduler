@@ -38,7 +38,7 @@ public class MainMenu {
 
             JButton button = new JButton(label);
             button.setBackground(Theme.getMenuButtonBG());
-            button.setFont(Theme.getmenuButtonFont());
+            button.setFont(Theme.getMenuButtonFont());
 
             GridBagConstraints buttonConstraints = new GridBagConstraints();
             buttonConstraints.insets = new Insets(0, 0, 0, 10);
@@ -64,6 +64,7 @@ public class MainMenu {
         menuConstraints.gridy = 0;
         menuConstraints.gridwidth = 9;
         menuConstraints.gridheight = 1;
+        menuConstraints.anchor = GridBagConstraints.FIRST_LINE_END;
 
         return menuConstraints;
     }

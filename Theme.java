@@ -1,9 +1,7 @@
 import java.awt.*;
-
-import javax.swing.JPanel;
-import javax.swing.JTextPane;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.text.BadLocationException;
+import javax.swing.border.MatteBorder;
 
 public class Theme {
     
@@ -26,6 +24,20 @@ public class Theme {
     // Button styles
     static Color menuButtonBG = new Color(153, 176, 128);
     static Font menuButtonFont = new Font("SansSerif", Font.BOLD, 14);
+    static Color deleteButtonColor = Color.RED;
+
+    static Color addButtonColor = new Color(249, 181, 114);
+    static Font addButtonFont = new Font("SansSerif", Font.BOLD, 14);
+
+    static Color saveButtonColor = new Color(249, 181, 114);
+    static Font saveButtonFont = new Font("SansSerif", Font.BOLD, 14);
+    
+
+
+    // Table styles
+    static MatteBorder tableRowBorder = new MatteBorder(3, 3, 0, 3, Color.BLACK);
+    static MatteBorder tableLastRowBorder = new MatteBorder(3, 3, 3, 3, Color.BLACK);
+    static Color tableRowBackground = Color.WHITE;
 
 
 
@@ -34,14 +46,10 @@ public class Theme {
         JPanel logo = new JPanel();
         logo.setBackground(logoBG);
 
-        JTextPane thisLogo = new JTextPane();
+        JLabel thisLogo = new JLabel(logoText);
         thisLogo.setBackground(logoBG);
         thisLogo.setFont(logoFont);
-        try {
-            thisLogo.getStyledDocument().insertString(0, logoText, null);
-        } catch (BadLocationException e) {
-            e.printStackTrace();
-        }
+
         logo.add(thisLogo);
 
         return logo;
@@ -88,8 +96,40 @@ public class Theme {
         return menuButtonBG;
     }
 
-    public static Font getmenuButtonFont() {
+    public static Font getMenuButtonFont() {
         return menuButtonFont;
+    }
+
+    public static MatteBorder getTableRowBorder() {
+        return tableRowBorder;
+    }
+
+    public static MatteBorder getTableLastRowBorder() {
+        return tableLastRowBorder;
+    }
+
+    public static Color getTableRowBackground() {
+        return tableRowBackground;
+    }
+
+    public static Color getDeleteButtonColor() {
+        return deleteButtonColor;
+    }
+
+    public static Color getAddButtonColor() {
+        return addButtonColor;
+    }
+
+    public static Font getAddButtonFont() {
+        return addButtonFont;
+    }
+
+    public static Color getSaveButtonColor() {
+        return saveButtonColor;
+    }
+
+    public static Font getSaveButtonFont() {
+        return saveButtonFont;
     }
 
 

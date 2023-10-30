@@ -5,10 +5,13 @@ public class PageManager {
     
     List<Page> pagesInMainMenu = new ArrayList<Page>();
     Page homePage;
+    UI ui;
 
     // Constructor
-    public PageManager() {
+    public PageManager(UI newUI) {
+        ui = newUI;
         this.generatePages();
+
     }
 
     public void generatePages() {
@@ -45,10 +48,11 @@ public class PageManager {
         pagesInMainMenu.add(clinicsPage);
 
         // Employees page
-        Page employeesPage = new Page(
+        EmployeesPage employeesPage = new EmployeesPage(
             "Employees", 
             "Add or edit employees here.", 
             "Employees");
+        employeesPage.ui = ui;
         pagesInMainMenu.add(employeesPage);
 
 
@@ -66,6 +70,17 @@ public class PageManager {
             "A page for help resources.",
             "Help");
         pagesInMainMenu.add(help);
+
+
+        // Get the Add Employee page
+        AddEmployeePage addEmployee = new AddEmployeePage(
+            "Add an Employee", 
+            "Use this page to add an employee.", 
+        "Add Employee");
+        // pagesInMainMenu.add(addEmployee);
+        employeesPage.addEmployeesPage = addEmployee; // Pass this page so employees page can request add employess page
+        addEmployee.employeesPage = employeesPage;
+        addEmployee.ui = ui;
 
     }
 

@@ -8,23 +8,9 @@ public class Page {
     String pageBody = "Default";
     String pageMenuLabel = "Default";
     JPanel pagePanel;
+    UI ui;
 
     // Constructors
-    public Page() {
-        // default constructor
-        this.generatePage();
-    }
-
-    public Page(String newPageTitle) {
-        pageTitle = newPageTitle;
-        this.generatePage();
-    }
-
-    public Page(String newPageTitle, String newPageBody) {
-        pageTitle = newPageTitle;
-        pageBody = newPageBody;
-        this.generatePage();
-    }
 
     public Page(String newPageTitle, String newPageBody, String newPageMenuLabel) {
         pageTitle = newPageTitle;
@@ -38,8 +24,8 @@ public class Page {
     public JPanel generatePage() {
 
         JPanel thisPage = new JPanel(); 
-        thisPage.setLayout(new BoxLayout(thisPage, BoxLayout.Y_AXIS));
-        thisPage.setBackground(Color.BLACK);
+        thisPage.setLayout(new GridBagLayout());
+        thisPage.setBackground(Theme.getPrimaryBG());
         thisPage.setBorder(Theme.getPageEmptyBorder());
 
         // Configure page title
@@ -47,13 +33,10 @@ public class Page {
         thisTitle.setBackground(Theme.getPrimaryBG());
         thisTitle.setFont(Theme.getPageTitleFont());
         
-
-
         // Configure page body
         JTextPane thisBody = new JTextPane();
         thisBody.setBackground(Theme.getPrimaryBG());
         thisBody.setFont(Theme.getPageBodyFont());
-
 
         // Add text to JTextPanes
         try {
@@ -63,8 +46,8 @@ public class Page {
             e.printStackTrace();
         }
 
-        thisPage.add(thisTitle);
-        thisPage.add(thisBody);
+        thisPage.add(thisTitle, Layout.getPageTitleConstraints());
+        thisPage.add(thisBody, Layout.getPageBodyConstraints());
 
         pagePanel = thisPage;
         return thisPage;
@@ -73,20 +56,9 @@ public class Page {
 
     public GridBagConstraints generateConstraints() {
 
-        GridBagConstraints pageConstraints = new GridBagConstraints();
-        pageConstraints.weightx = 1;
-        pageConstraints.weighty = 1;
-        pageConstraints.gridx = 0;
-        pageConstraints.gridy = 1;
-        pageConstraints.gridwidth = 12;
-        pageConstraints.gridheight = GridBagConstraints.REMAINDER;
-        pageConstraints.insets = new Insets(50, 25, 50, 25);
-        pageConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
-        pageConstraints.fill = GridBagConstraints.HORIZONTAL;
+        return Layout.getPageconstraints();
 
-        return pageConstraints;        
     }
-
 
 
     // Getters n Setters

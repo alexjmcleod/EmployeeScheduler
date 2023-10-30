@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -29,7 +28,7 @@ public class UI {
         mainPanel.add(logo, logoConstraints);
 
         // Get the pages from the PageManager
-        PageManager pageManager = new PageManager();
+        PageManager pageManager = new PageManager(this);
         List<Page> pages = pageManager.getPagesInMainMenu();
 
         // Get menu and add to mainPanel
@@ -62,6 +61,21 @@ public class UI {
         mainWindow.revalidate();
         mainWindow.repaint();
 
+    }
+
+
+    public void showAddEmployeePage(Page addEmployeesPage) {
+
+        // Called when the Add Employee button is pushed
+        mainWindow.remove(currentPage.getPagePanel());
+
+        currentPage = addEmployeesPage;
+
+        mainWindow.add(
+            addEmployeesPage.getPagePanel(), 
+            addEmployeesPage.generateConstraints());
+        mainWindow.revalidate();
+        mainWindow.repaint();
     }
 
 }
