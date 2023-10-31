@@ -9,10 +9,6 @@ import java.awt.event.*;
 
 public class AddEmployeePage extends Page {
 
-    // List<Employee> employeesList;
-    Page employeesPage;
-    // UI ui;
-
     JTextField nameField;
     
     // Constructors
@@ -37,7 +33,8 @@ public class AddEmployeePage extends Page {
         JButton saveButton = new JButton("Save");
         saveButton.setBackground(Theme.getSaveButtonColor());
         saveButton.setFont(Theme.getSaveButtonFont());
-        saveButton.addActionListener(new SaveButtonAction());
+        // TODO: temporarily disable action listener
+        // saveButton.addActionListener(new SaveButtonAction());
         
         thisPage.add(saveButton, Layout.getSaveEmployeeButtonConstraints());
 
@@ -46,31 +43,32 @@ public class AddEmployeePage extends Page {
 
     // Event listeners
 
-    class SaveButtonAction implements ActionListener {
+    // TODO: Save button functionality is disabled
+    // class SaveButtonAction implements ActionListener {
 
-        String name;
+    //     String name;
 
-        private Employee generateEmployee() {
-            Employee newEmployee = new Employee(name);
-            return newEmployee;
-        }
+    //     private Employee generateEmployee() {
+    //         Employee newEmployee = new Employee(name);
+    //         return newEmployee;
+    //     }
         
-        public void actionPerformed(ActionEvent event) {
-            EmployeesPage ep = (EmployeesPage) employeesPage;
+        // public void actionPerformed(ActionEvent event) {
+        //     EmployeesPage ep = (EmployeesPage) employeesPage;
 
-            // Get form fields
-            name = nameField.getText().strip();
+        //     // Get form fields
+        //     name = nameField.getText().strip();
 
-            // Clear form fields
-            nameField.setText("");
+        //     // Clear form fields
+        //     nameField.setText("");
             
-            ep.employeesList.add(generateEmployee());
+        //     ep.employeesList.add(generateEmployee());
             
-            AddEmployeePage.this.getUI().displayEmployeesPage();;
-        }
+        //     AddEmployeePage.this.getUI().displayEmployeesPage();;
+        // }
 
 
-    }
+    // }
 
 
 
