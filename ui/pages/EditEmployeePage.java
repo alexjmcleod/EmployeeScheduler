@@ -6,29 +6,31 @@ import app.*;
 import ui.*;
 import entities.*;
 
+// TODO: Refactor this so it and addemployeepage extend a common class?
 
-
-public class AddEmployeePage extends Page {
+public class EditEmployeePage extends Page {
 
     EmployeeManager eManager;
     JTextField nameField;
+    Employee employeeToEdit;
     
     // Constructors
 
-    public AddEmployeePage(UI newUI, EmployeeManager neweManager) {
+    public EditEmployeePage(UI newUI, EmployeeManager neweManager, Employee employee) {
         super(newUI);
-        this.setPageTitle("Add a New Employee");
-        this.setPageBody("Add a new employee with the form.");
+        this.setPageTitle("Edit an Existing Employee");
+        this.setPageBody("Edit an employee with the form.");
         eManager = neweManager;
-        this.generateAddEmployeePage();
+        employeeToEdit = employee;
+        this.generateEditEmployeePage();
     }
 
-    private void generateAddEmployeePage() {
+    private void generateEditEmployeePage() {
 
         JPanel thisPage = super.generatePage();
 
         JLabel nameFieldLabel = new JLabel("Name: ");
-        nameField = new JTextField(20);
+        nameField = new JTextField(employeeToEdit.getName(), 20);
 
         thisPage.add(nameFieldLabel, Layout.getAddEmployeeFieldConstraints());
         thisPage.add(nameField, Layout.getAddEmployeeFieldConstraints());
@@ -42,7 +44,6 @@ public class AddEmployeePage extends Page {
 
     }
 
-
     // Event listeners
     class SaveButtonAction implements ActionListener {
         
@@ -50,12 +51,13 @@ public class AddEmployeePage extends Page {
         
             // Get form fields
             String name = nameField.getText().strip();
+            employeeToEdit.setName(name);
             
-            // Save the new employee
-            eManager.saveEmployee(new Employee(name));
+            // Save the updates
+            eManager.updateEmployee(employeeToEdit);
             
             // Tricky syntax because the UI is stored in the Page superclass
-            AddEmployeePage.this.getUI().displayEmployeesPage();;
+            EditEmployeePage.this.getUI().displayEmployeesPage();;
         }
 
 

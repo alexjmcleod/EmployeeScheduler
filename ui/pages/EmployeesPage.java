@@ -1,5 +1,4 @@
 package ui.pages;
-import java.util.List;
 import java.util.ArrayList;
 import javax.swing.*;
 
@@ -10,27 +9,26 @@ import ui.*;
 import java.awt.*;
 import java.awt.event.*;
 
+// TODO: Verification prompt on employee delete
+
 public class EmployeesPage extends Page {
 
-    List<Employee> employeesList = new ArrayList<Employee>();
+    EmployeeManager eManager;
 
     // Constructors
 
-    public EmployeesPage(UI newUI) {
+    public EmployeesPage(UI newUI, EmployeeManager newEmployeeManager) {
         super(newUI);
         this.setPageTitle("Employees");
         this.setPageBody("Add or edit employees here.");
+        eManager = newEmployeeManager;
         this.generateEmployeesPage();
 
     }
     
-    public JPanel generateEmployeesPage() {
-
-        this.getTestEmployees();
-       
+    public JPanel generateEmployeesPage() {   
 
         JPanel thisPage = super.generatePage();
-
 
         // Add Add Employee button
         JButton addEmployeeButton = new JButton("Add Employee");
@@ -54,8 +52,10 @@ public class EmployeesPage extends Page {
         // to the last row
         JPanel curEmployeeRow = new JPanel();
 
-        if (!employeesList.isEmpty()) {
-            for (Employee employee : employeesList) {
+        // Get the employee list
+        ArrayList<Employee> eList = eManager.getEmployeeList();
+        if (!eList.isEmpty()) {
+            for (Employee employee : eList) {
 
                 JPanel employeeRow = new JPanel();
                 curEmployeeRow = employeeRow; // Saving for custom border on last row
@@ -98,18 +98,6 @@ public class EmployeesPage extends Page {
     }
 
 
-    private void getTestEmployees() {
-        // Temporary method implementation for testing
-
-        // Create a new employee and add it to list
-        Employee employee1 = new Employee("Alice");
-        Employee employee2 = new Employee("Quentin");
-        employeesList.add(employee1);
-        employeesList.add(employee2);
-
-    }
-
-
     // Event handlers
 
     class EditEmployeeAction implements ActionListener {
@@ -122,6 +110,7 @@ public class EmployeesPage extends Page {
 
         public void actionPerformed(ActionEvent event) {
             System.out.println(String.format("Edit: %s", employeeToEdit.getName()));
+            EmployeesPage.this.getUI().displayEditEmployeePage(employeeToEdit);
         }
 
     }
@@ -137,17 +126,16 @@ public class EmployeesPage extends Page {
 
         public void actionPerformed(ActionEvent event) {
             System.out.println(String.format("Delete: %s", employeeToDelete.getName()));
+            eManager.deleteEmployee(employeeToDelete);
+            EmployeesPage.this.getUI().displayEmployeesPage();
         }
     }
 
 
     class AddEmployeeAction implements ActionListener {
-
         public void actionPerformed(ActionEvent event) {
-            // System.out.println(pageToSet.getPageTitle());
             EmployeesPage.this.getUI().displayAddEmployeePage();
         }   
-
     }
 
 

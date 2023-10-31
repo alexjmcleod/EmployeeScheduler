@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import ui.*;
 import ui.pages.*;
+import entities.*;
 
 import java.awt.*;
 
@@ -12,12 +13,13 @@ public class UI {
 
     private JPanel mainWindow;
     private Page currentPage;
+    private EmployeeManager employeeManager;
 
     public void startup() {
         
         // Set up window
         JFrame mainFrame = new JFrame();
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Main panel to be direct child of JFrame
         JPanel mainPanel = new JPanel();
@@ -46,10 +48,14 @@ public class UI {
         // These should be called last, lest nothing be visible
         mainFrame.setSize(1200, 720);
         mainFrame.setVisible(true);
+
+
+        // Populate Employees list
+        employeeManager = new EmployeeManager();
+
         
     }
-
-
+    
 
     // Methods to update display
     private void displayNewPage(Page page) {
@@ -81,7 +87,7 @@ public class UI {
     }
 
     public void displayEmployeesPage() {
-        this.displayNewPage(new EmployeesPage(this));
+        this.displayNewPage(new EmployeesPage(this, employeeManager));
     }
 
     public void displayShiftRulesPage() {
@@ -93,7 +99,11 @@ public class UI {
     }
 
     public void displayAddEmployeePage() {
-        this.displayNewPage(new AddEmployeePage(this));
+        this.displayNewPage(new AddEmployeePage(this, employeeManager));
+    }
+
+    public void displayEditEmployeePage(Employee employee) {
+        this.displayNewPage(new EditEmployeePage(this, employeeManager, employee));
     }
 
 

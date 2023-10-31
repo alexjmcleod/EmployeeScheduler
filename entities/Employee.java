@@ -1,5 +1,8 @@
 package entities;
-public class Employee {
+
+import java.io.Serializable;
+
+public class Employee implements Serializable {
     
     String name;
     
@@ -13,6 +16,10 @@ public class Employee {
     // Getters n setters
     public String getName() {
         return name;
+    }
+
+    public void setName(String newName) {
+        name = newName;
     }
 
 
