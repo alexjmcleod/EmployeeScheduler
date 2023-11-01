@@ -2,6 +2,7 @@ package ui.pages;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.List;
 
 import app.*;
 import ui.*;
@@ -12,12 +13,18 @@ import entities.*;
 public class AddEmployeePage extends ModifyEmployeePage {
 
     private static String pageTitle = "Add a New Employee";
-    private static String pageBody = "Use this page to add a new employee.";
+    private static List<String> pageBodyStrings;
 
     // Constructors
 
     public AddEmployeePage(UI newUI, EmployeeManager neweManager) {
-        super(newUI, neweManager, new Employee(), pageTitle, pageBody);
+        super(newUI, neweManager, new Employee(), pageTitle, pageBodyStrings);
+        
+        pageBodyStrings.add(
+            "Use this page to add a new employee."
+            );
+        
+        this.setPageBodyStrings(pageBodyStrings);
         this.generateAddEmployeePage();
     }
 

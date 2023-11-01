@@ -4,11 +4,12 @@ import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 
 import ui.Layout;
 import ui.Theme;
 
-public class ShiftLocationPref {
+public class ShiftLocationPref implements Serializable {
     
     // Stores shift location preferences
     Map<String, Integer> shiftLocationPreferences = new LinkedHashMap<String, Integer>();

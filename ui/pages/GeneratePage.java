@@ -1,4 +1,7 @@
 package ui.pages;
+import java.util.ArrayList;
+import java.util.List;
+
 import app.UI;
 import ui.*;
 
@@ -8,7 +11,11 @@ public class GeneratePage extends Page {
     public GeneratePage(UI newUI) {
         super(newUI);
         this.setPageTitle("Generate");
-        this.setPageBody("...");
+        
+        List<String> pageBodyStrings = new ArrayList<String>();
+        pageBodyStrings.add("...");
+        this.setPageBodyStrings(pageBodyStrings);
+
         this.generatePage();
     }
 

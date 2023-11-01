@@ -17,11 +17,6 @@ public class Employee implements Serializable {
         name = newName;
     }
 
-    // public Employee(String newName, ShiftPref newShiftPref) {
-    //     name = newName;
-    //     shiftPref = newShiftPref;
-    // }
-
 
     // Getters n setters
     public String getName() {

@@ -2,6 +2,7 @@ package ui.pages;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 import app.*;
 import ui.*;
@@ -15,10 +16,10 @@ public class ModifyEmployeePage extends Page {
     
     // Constructors
 
-    public ModifyEmployeePage(UI newUI, EmployeeManager neweManager, Employee newEmployee, String pageTitle, String pageBody) {
+    public ModifyEmployeePage(UI newUI, EmployeeManager neweManager, Employee newEmployee, String pageTitle, List<String> pageBodyStrings) {
         super(newUI);
         this.setPageTitle(pageTitle);
-        this.setPageBody(pageBody);
+        this.setPageBodyStrings(pageBodyStrings);
         employee = newEmployee;
         eManager = neweManager;
         this.generateModifyEmployeePage();

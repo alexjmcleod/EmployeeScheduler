@@ -1,5 +1,6 @@
 package ui.pages;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 
 import app.*;
@@ -19,8 +20,13 @@ public class EmployeesPage extends Page {
 
     public EmployeesPage(UI newUI, EmployeeManager newEmployeeManager) {
         super(newUI);
+        
         this.setPageTitle("Employees");
-        this.setPageBody("Add or edit employees here.");
+
+        List<String> pageBodyStrings = new ArrayList<String>();
+        pageBodyStrings.add("Add or edit employees here.");
+        this.setPageBodyStrings(pageBodyStrings);
+
         eManager = newEmployeeManager;
         this.generateEmployeesPage();
 

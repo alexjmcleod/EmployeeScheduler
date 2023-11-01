@@ -1,6 +1,7 @@
 package ui.pages;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.List;
 
 import app.*;
 import ui.*;
@@ -9,14 +10,16 @@ import entities.*;
 public class EditEmployeePage extends ModifyEmployeePage {
 
     private static String pageTitle = "Edit Employee";
-    private static String pageBody = "Use this page to edit an existing employee.";
+    private static List<String> pageBodyStrings;
    
     // Constructors
 
     public EditEmployeePage(UI newUI, EmployeeManager neweManager, Employee employee) {
-        super(newUI, neweManager, employee, pageTitle, pageBody);
-        // System.out.println(String.format("In editemployeepage constructor, value of name: %s", employee.getName()));
-        // System.out.println(String.format("In editemployeepage constructor, value of name: %s", employeeToEdit.getName()));
+        
+        super(newUI, neweManager, employee, pageTitle, pageBodyStrings);
+
+        pageBodyStrings.add("Use this page to edit an existing employee.");
+        this.setPageBodyStrings(pageBodyStrings);
         this.generateEditEmployeePage();
     }
 

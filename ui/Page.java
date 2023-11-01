@@ -3,12 +3,15 @@ import javax.swing.*;
 import java.awt.*;
 import javax.swing.text.BadLocationException;
 import app.*;
+import java.util.*;
+import java.util.List;
 
 
 public class Page {
     
     private static String pageTitle = "Default";
-    private static String pageBody = "Default";
+    // private static String pageBody = "Default";
+    private List<String> pageBodyStrings = new ArrayList<String>();
     private static String pageMenuLabel = "Default";
     JPanel pagePanel;
     UI ui;
@@ -29,24 +32,33 @@ public class Page {
 
         // Configure page title
         JTextPane thisTitle = new JTextPane();
+        thisTitle.setEditable(false);
+        thisTitle.setFocusable(false);
         thisTitle.setBackground(Theme.getPrimaryBG());
         thisTitle.setFont(Theme.getPageTitleFont());
-        
-        // Configure page body
-        JTextPane thisBody = new JTextPane();
-        thisBody.setBackground(Theme.getPrimaryBG());
-        thisBody.setFont(Theme.getPageBodyFont());
-
-        // Add text to JTextPanes
         try {
             thisTitle.getStyledDocument().insertString(0, pageTitle, null);
-            thisBody.getStyledDocument().insertString(0, pageBody, null);
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
-
         thisPage.add(thisTitle, Layout.getPageTitleConstraints());
-        thisPage.add(thisBody, Layout.getPageBodyConstraints());
+
+        
+        // Configure page body
+        for (String bodyPar : pageBodyStrings) {
+            JTextPane thisBody = new JTextPane();
+            thisBody.setEditable(false);
+            thisBody.setFocusable(false);
+            thisBody.setBackground(Theme.getPrimaryBG());
+            thisBody.setFont(Theme.getPageBodyFont());
+            try {
+                thisBody.getStyledDocument().insertString(0, bodyPar, null);
+            } catch (BadLocationException e) {
+                e.printStackTrace();
+            }
+            thisPage.add(thisBody, Layout.getPageBodyConstraints());
+        }
+       
 
         pagePanel = thisPage;
         return thisPage;
@@ -65,9 +77,9 @@ public class Page {
         return pageTitle;
     }
 
-    public String getPageBody() {
-        return pageBody;
-    }
+    // public String getPageBody() {
+    //     return pageBody;
+    // }
 
     public String getPageMenuLabel() {
         return pageMenuLabel;
@@ -85,9 +97,9 @@ public class Page {
         pageTitle = newPageTitle;
     }
 
-    public void setPageBody(String newPageBody) {
-        pageBody = newPageBody;
-    }
+    // public void setPageBody(String newPageBody) {
+    //     pageBody = newPageBody;
+    // }
 
     public void setPageMenuLabel(String newPageMenuLabel) {
         pageMenuLabel = newPageMenuLabel;
@@ -95,6 +107,10 @@ public class Page {
 
     public void setPagePanel(JPanel newPanel) {
         pagePanel = newPanel;
+    }
+
+    public void setPageBodyStrings(List<String> newPageBodyStrings) {
+        pageBodyStrings = newPageBodyStrings;
     }
 
 

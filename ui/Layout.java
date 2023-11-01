@@ -1,9 +1,21 @@
 package ui;
 import java.awt.*;
 
-public class Layout {
+// Example
+// c.weightx = 0;
+// c.weighty = 1;
+// c.gridx = 1;
+// c.gridy = 2;
+// c.gridwidth = 4;
+// c.gridheight = 1;
+// c.anchor = GridBagConstraints.LINE_START;
+// c.fill = GridBagConstraints.HORIZONTAL;
+// c.ipadx = 20;
+// c.ipady = 15;
+// c.insets = new Insets(10, 10, 10, 10);
 
-// TODO: clean up this file
+
+public class Layout {
 
     // Page Constraints
     public static GridBagConstraints getPageconstraints() {
@@ -47,7 +59,7 @@ public class Layout {
         c.weightx = 1;
         c.weighty = 1;
         c.gridx = 0;
-        c.gridy = 1;
+        //c.gridy = 1;
         c.gridwidth = 12;
         c.gridheight = 1;
         c.anchor = GridBagConstraints.LINE_START;
@@ -68,7 +80,6 @@ public class Layout {
         c.gridwidth = 12;
         c.gridheight = 1;
         c.anchor = GridBagConstraints.LINE_START;
-        //c.fill = GridBagConstraints.HORIZONTAL;
         c.ipadx = 20;
         c.ipady = 30;
         c.insets = new Insets(0, 0, 15, 0);
@@ -83,7 +94,6 @@ public class Layout {
         c.weightx = 1;
         c.weighty = 0;
         c.gridx = 0;
-        // c.gridy = 2;
         c.gridwidth = 12;
         c.gridheight = 1;
         c.anchor = GridBagConstraints.LINE_START;
@@ -103,7 +113,6 @@ public class Layout {
         c.gridwidth = 8;
         c.gridheight = 1;
         c.anchor = GridBagConstraints.LINE_START;
-        // c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(15, 15, 15, 15);
 
         return c;
@@ -121,7 +130,6 @@ public class Layout {
         c.gridheight = 1;
         c.anchor = GridBagConstraints.LINE_END;
         c.insets = new Insets(15, 15, 15, 15);
-        // c.fill;
 
         return c;
 
@@ -138,7 +146,6 @@ public class Layout {
         c.gridheight = 1;
         c.anchor = GridBagConstraints.LINE_END;
         c.insets = new Insets(15, 15, 15, 15);
-        // c.fill;
 
         return c;
 
@@ -150,14 +157,9 @@ public class Layout {
         c.weightx = 0;
         c.weighty = 0;
         c.gridx = 0;
-        // c.gridy = 2;
         c.gridwidth = 4;
         c.gridheight = 1;
         c.anchor = GridBagConstraints.FIRST_LINE_START;
-        //c.fill = GridBagConstraints.HORIZONTAL;
-        // c.ipadx = 20;
-        // c.ipady = 30;
-        //c.insets = new Insets(40, 0, 15, 0);
 
         return c;
 
@@ -166,16 +168,13 @@ public class Layout {
     public static GridBagConstraints getShiftPrefPanelHeadingPanelConstraints() {
         GridBagConstraints c = new GridBagConstraints();
         c.weightx = 1;
-        // c.weighty = 0;
         c.gridx = 0;
         c.gridy = 1;
         c.gridwidth = 12;
         c.gridheight = 1;
         c.anchor = GridBagConstraints.LINE_START;
         c.fill = GridBagConstraints.HORIZONTAL;
-        // c.ipadx = 20;
         c.ipady = 15;
-        // c.insets = new Insets(40, 0, 15, 0);
 
         return c;
     }
@@ -192,7 +191,6 @@ public class Layout {
     public static GridBagConstraints getShiftPrefPanelGridConstraints() {
         GridBagConstraints c = new GridBagConstraints();
         c.weightx = 1;
-        // c.weighty = 0;
         c.gridx = 0;
         c.gridy = 2;
         c.gridwidth = 12;
@@ -201,7 +199,6 @@ public class Layout {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.ipadx = 20;
         c.ipady = 15;
-        // c.insets = new Insets(40, 0, 15, 0);
 
         return c;
     }
@@ -210,16 +207,13 @@ public class Layout {
         
         GridBagConstraints c = new GridBagConstraints();
         c.weightx = 0;
-        // c.weighty = 0;
         c.gridx = 0;
-        // c.gridy = 2;
         c.gridwidth = 12;
         c.gridheight = 1;
         c.anchor = GridBagConstraints.LINE_START;
         c.fill = GridBagConstraints.HORIZONTAL;
         c.ipadx = 20;
         c.ipady = 15;
-        // c.insets = new Insets(40, 0, 15, 0);
 
         return c;
     }
@@ -227,17 +221,11 @@ public class Layout {
     public static GridBagConstraints getEmployeeProfileFieldLabelConstraints() {
         
         GridBagConstraints c = new GridBagConstraints();
-        // c.weightx = 0;
-        // c.weighty = 0;
         c.gridx = 0;
-        // c.gridy = 2;
         c.gridwidth = 4;
         c.gridheight = 1;
         c.anchor = GridBagConstraints.LINE_START;
-        // c.fill = GridBagConstraints.HORIZONTAL;
         c.ipadx = 20;
-        // c.ipady = 15;
-        // c.insets = new Insets(10, 10, 10, 10);
 
         return c;
     }
@@ -247,12 +235,8 @@ public class Layout {
         GridBagConstraints c = new GridBagConstraints();
         c.weightx = 0;
         c.weighty = 1;
-        // c.gridx = 1;
-        // c.gridy = 2;
         c.gridwidth = 4;
         c.gridheight = 1;
-        // c.anchor = GridBagConstraints.LINE_START;
-        // c.fill = GridBagConstraints.HORIZONTAL;
         c.ipadx = 20;
         c.ipady = 15;
         c.insets = new Insets(10, 10, 10, 10);
@@ -263,16 +247,8 @@ public class Layout {
     public static GridBagConstraints getEmployeePreferencesPanelConstraints() {
         
         GridBagConstraints c = new GridBagConstraints();
-        // c.weightx = 1;
-        // c.weighty = 1;
         c.gridx = 0;
-        // c.gridy = 2;
-        // c.gridwidth = 4;
-        // c.gridheight = 1;
         c.anchor = GridBagConstraints.LINE_START;
-        // c.fill = GridBagConstraints.HORIZONTAL; 
-        // c.ipadx = 20;
-        // c.ipady = 10;
         c.insets = new Insets(20, 0, 15, 0);
 
         return c;
@@ -284,11 +260,9 @@ public class Layout {
         c.weightx = 0;
         c.weighty = 0;
         c.gridx = 0;
-        // c.gridy = 2;
         c.gridwidth = 12;
         c.gridheight = 1;
         c.anchor = GridBagConstraints.LINE_START;
-        //c.fill = GridBagConstraints.HORIZONTAL;
         c.ipadx = 20;
         c.ipady = 10;
         c.insets = new Insets(40, 0, 15, 0);
@@ -298,6 +272,44 @@ public class Layout {
     }
 
 
+    public static GridBagConstraints getHomePageVersionUpdatesPanelConstraints() {
+        
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.gridx = 0;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.ipadx = 50;
+        c.ipady = 30;
+        c.insets = new Insets(40, 0, 15, 0);
+
+        return c;
+    }
+
+    public static GridBagConstraints getVersionUpdatesTitleLabelConstraints() {
+
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.gridx = 0;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.PAGE_START;
+
+        return c;
+
+    }
+
+    public static GridBagConstraints getVersionUpdatesBodyPanelConstraints() {
+        
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.gridx = 0;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.ipadx = 20;
+        c.insets = new Insets(20, 10, 10, 10);
+
+        return c;
+    }
     
     
     
