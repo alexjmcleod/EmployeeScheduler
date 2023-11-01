@@ -1,6 +1,7 @@
 package app;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 import ui.*;
 import ui.pages.*;
@@ -23,11 +24,18 @@ public class UI {
 
         // Main panel to be direct child of JFrame
         JPanel mainPanel = new JPanel();
+        
+
         mainWindow = mainPanel;
         mainPanel.setLayout(new GridBagLayout());
         mainPanel.setBorder(Theme.getPrimaryWindowEmptyBorder());
         mainPanel.setBackground(Theme.getPrimaryBG());
-        mainFrame.add(mainPanel);
+
+        // Make the window scrollable
+        JScrollPane scrPane = new JScrollPane(mainPanel);
+        scrPane.setBorder(new EmptyBorder(0,0,0,0));
+        scrPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        mainFrame.add(scrPane);
 
         // Get the logo and add to mainPanel
         JPanel logo = Theme.getLogo();

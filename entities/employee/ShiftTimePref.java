@@ -2,23 +2,19 @@ package entities.employee;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
+import java.util.List;
+import java.io.Serializable;
+import java.time.DayOfWeek;
+import java.time.format.TextStyle;
 
 import ui.Layout;
 import ui.Theme;
 
-import java.io.Serializable;
-import java.time.DayOfWeek;
-import java.time.format.TextStyle;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.LinkedHashMap;
-import java.util.Locale;
-import java.util.Map;
 
-// TODO: refactor this class
 // TODO: input validation on preference fields
 
-public class ShiftPref implements Serializable {
+public class ShiftTimePref implements Serializable {
 
     // LinkedHashMap to store shift time preferences
     // {MONDAY  : {"DAY": int, "SWING": int, "NIGHT": int}} 
@@ -33,7 +29,7 @@ public class ShiftPref implements Serializable {
     // For reuse of shift labels
     Map<String, String> shiftLabels;
 
-    public ShiftPref() {
+    public ShiftTimePref() {
         
         // Initialize map of shift keys and pretty format
         shiftLabels = new LinkedHashMap<>();
@@ -56,23 +52,38 @@ public class ShiftPref implements Serializable {
     }
 
 
-    public JPanel getShiftPrefPanel() {
+    public JPanel getShiftTimePrefPanel() {
 
-        JPanel shiftPrefPanel = new JPanel();
-        shiftPrefPanel.setLayout(new GridLayout(8, 4, 4, 4));
-        shiftPrefPanel.setBackground(Theme.getPrimaryBG());
+        // Create container for heading and grid
+        JPanel shiftTimePrefPanel = new JPanel();
+        shiftTimePrefPanel.setLayout(new GridBagLayout());
+
+        // Create heading and add to container
+        JPanel shiftTimePrefPanelHeading = new JPanel();
+        shiftTimePrefPanelHeading.setLayout(new GridBagLayout());
+        shiftTimePrefPanelHeading.setBackground(Theme.getPrimaryBG());
+        JLabel prefTitle = new JLabel("Shift Time Preferences");
+        prefTitle.setFont(Theme.getTableSectionTitleFont());
+
+        shiftTimePrefPanelHeading.add(prefTitle, Layout.getShiftPrefPanelHeadingLabelConstraints());
+        shiftTimePrefPanel.add(shiftTimePrefPanelHeading, Layout.getShiftPrefPanelHeadingPanelConstraints());
+
+        // Create grid
+        JPanel shiftTimePrefGrid = new JPanel();
+        shiftTimePrefGrid.setLayout(new GridLayout(8, 4, 4, 4));
+        shiftTimePrefGrid.setBackground(Theme.getPrimaryBG());
 
         
         // Add an empty cell to the grid
         JLabel emptyCell = new JLabel("");
-        shiftPrefPanel.add(emptyCell);
+        shiftTimePrefGrid.add(emptyCell);
 
         // Add each shift label to the grid
         for (Map.Entry<String, String> shiftLabel : shiftLabels.entrySet()) {
             JLabel label = new JLabel(shiftLabel.getValue());
             label.setHorizontalAlignment(SwingConstants.CENTER);
             label.setFont(Theme.getFormFieldLabelFont());
-            shiftPrefPanel.add(label);
+            shiftTimePrefGrid.add(label);
         }
 
 
@@ -88,7 +99,7 @@ public class ShiftPref implements Serializable {
             // Add dow as jlabel to the display
             JLabel dayLabel = new JLabel(dayString);
             dayLabel.setFont(Theme.getFormFieldLabelFont());
-            shiftPrefPanel.add(dayLabel, Layout.getEmployeeProfileFieldLabelConstraints());
+            shiftTimePrefGrid.add(dayLabel, Layout.getEmployeeProfileFieldLabelConstraints());
 
             // Here we loop through each unique shift
             for (Map.Entry<String, Integer> uniqueShift : dayOfWeekKey.getValue().entrySet()) {
@@ -96,7 +107,7 @@ public class ShiftPref implements Serializable {
                 // For each shift label, generate a JTextField and add to the display
                 JTextField prefField = new JTextField(4);
 
-                // Custom property: Track which unique entry in the 2D array prefField
+                // Custom property: Track which unique entry in the 2D map prefField
                 // refers to by attaching the entry to a client property
                 prefField.putClientProperty("uniqueMapEntry", uniqueShift);
 
@@ -106,13 +117,14 @@ public class ShiftPref implements Serializable {
                 // Add to display
                 prefField.setText(Integer.toString(uniqueShift.getValue()));
                 prefField.setHorizontalAlignment(SwingConstants.CENTER);
-                shiftPrefPanel.add(prefField, Layout.getEmployeeProfileFieldConstraints());
+                shiftTimePrefGrid.add(prefField, Layout.getEmployeeProfileFieldConstraints());
 
             }
 
         }
 
-        return shiftPrefPanel;
+        shiftTimePrefPanel.add(shiftTimePrefGrid, Layout.getShiftPrefPanelGridConstraints());
+        return shiftTimePrefPanel;
     }
 
 
@@ -134,9 +146,9 @@ public class ShiftPref implements Serializable {
 
 
     // Getters and setters
-    public List<JTextField> getShiftTimePreferenceFields() {
-        return shiftTimePreferenceFields;
-    }
+    // public List<JTextField> getShiftTimePreferenceFields() {
+    //     return shiftTimePreferenceFields;
+    // }
 
 
 }

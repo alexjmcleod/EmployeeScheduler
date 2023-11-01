@@ -1,9 +1,9 @@
 package ui;
-import java.awt.GridBagConstraints;
 import java.awt.*;
 
 public class Layout {
 
+// TODO: clean up this file
 
     // Page Constraints
     public static GridBagConstraints getPageconstraints() {
@@ -163,6 +163,49 @@ public class Layout {
 
     }
 
+    public static GridBagConstraints getShiftPrefPanelHeadingPanelConstraints() {
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        // c.weighty = 0;
+        c.gridx = 0;
+        c.gridy = 1;
+        c.gridwidth = 12;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        // c.ipadx = 20;
+        c.ipady = 15;
+        // c.insets = new Insets(40, 0, 15, 0);
+
+        return c;
+    }
+
+    public static GridBagConstraints getShiftPrefPanelHeadingLabelConstraints() {
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.gridx = 0;
+        c.anchor = GridBagConstraints.LINE_START;
+
+        return c;
+    }
+
+    public static GridBagConstraints getShiftPrefPanelGridConstraints() {
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        // c.weighty = 0;
+        c.gridx = 0;
+        c.gridy = 2;
+        c.gridwidth = 12;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipadx = 20;
+        c.ipady = 15;
+        // c.insets = new Insets(40, 0, 15, 0);
+
+        return c;
+    }
+
     public static GridBagConstraints getEmployeeProfileRowConstraints() {
         
         GridBagConstraints c = new GridBagConstraints();
@@ -193,7 +236,7 @@ public class Layout {
         c.anchor = GridBagConstraints.LINE_START;
         // c.fill = GridBagConstraints.HORIZONTAL;
         c.ipadx = 20;
-        c.ipady = 15;
+        // c.ipady = 15;
         // c.insets = new Insets(10, 10, 10, 10);
 
         return c;

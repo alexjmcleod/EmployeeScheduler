@@ -39,6 +39,7 @@ public class Theme {
     static MatteBorder tableRowBorder = new MatteBorder(3, 3, 0, 3, Color.BLACK);
     static MatteBorder tableLastRowBorder = new MatteBorder(3, 3, 3, 3, Color.BLACK);
     static Color tableRowBackground = Color.WHITE;
+    static Font tableSectionTitleFont = new Font("SansSerif", Font.BOLD, 18);
 
 
     // Form styles
@@ -139,6 +140,10 @@ public class Theme {
 
     public static Font getFormFieldLabelFont() {
         return formFieldLabelFont;
+    }
+
+    public static Font getTableSectionTitleFont() {
+        return tableSectionTitleFont;
     }
 
 

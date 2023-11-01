@@ -15,21 +15,13 @@ public class EmployeeManager implements Serializable {
         
         this.loadEmployees();
 
-        // Test employees
-        // Employee emp1 = new Employee("Alice");
-        // Employee emp2 = new Employee("Quentin");
-        // employeeList.add(emp1);
-        // employeeList.add(emp2);
-
-
     }
-
 
 
     public void loadEmployees() {
 
         try {
-            FileInputStream inputStream = new FileInputStream("EmployeeData.ser");
+            FileInputStream inputStream = new FileInputStream("data/EmployeeData.ser");
             ObjectInputStream objectStream = new ObjectInputStream(inputStream);
  
             Object m = objectStream.readObject();
@@ -56,7 +48,7 @@ public class EmployeeManager implements Serializable {
     public void saveEmployeeList() {
 
         try {
-            FileOutputStream outputStream = new FileOutputStream("EmployeeData.ser");
+            FileOutputStream outputStream = new FileOutputStream("data/EmployeeData.ser");
             ObjectOutputStream objectStream = new ObjectOutputStream(outputStream);
 
             objectStream.writeObject(employeeList);

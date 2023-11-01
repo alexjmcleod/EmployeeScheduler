@@ -43,7 +43,7 @@ public class AddEmployeePage extends ModifyEmployeePage {
         public void actionPerformed(ActionEvent event) {
         
             // Update Shift Preferences
-            employee.getShiftPrefs().updateShiftPreferences();
+            employee.getShiftTimePrefs().updateShiftPreferences();
 
             // Get form fields
             String name = nameField.getText().strip();

@@ -1,6 +1,7 @@
 package ui.pages;
 
 import javax.swing.*;
+import java.awt.*;
 
 import app.*;
 import ui.*;
@@ -33,8 +34,12 @@ public class ModifyEmployeePage extends Page {
         thisPage.add(nameFieldLabel, Layout.getAddEmployeeFieldConstraints());
         thisPage.add(nameField, Layout.getAddEmployeeFieldConstraints());
         
-        JPanel preferencesPanel = employee.getShiftPrefs().getShiftPrefPanel();
-        thisPage.add(preferencesPanel, Layout.getEmployeePreferencesPanelConstraints());
+        JPanel shiftTimePreferencesPanel = employee.getShiftTimePrefs().getShiftTimePrefPanel();
+        thisPage.add(shiftTimePreferencesPanel, Layout.getEmployeePreferencesPanelConstraints());
+
+        JPanel shiftLocationPreferencesPanel = employee.getShiftLocationPref().getShiftLocationPrefPanel();
+        shiftLocationPreferencesPanel.setBackground(Color.BLACK);
+        thisPage.add(shiftLocationPreferencesPanel, Layout.getEmployeePreferencesPanelConstraints());
 
         return thisPage;
 
