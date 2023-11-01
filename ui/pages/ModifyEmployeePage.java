@@ -1,14 +1,10 @@
 package ui.pages;
-import javax.swing.*;
 
-import java.awt.*;
+import javax.swing.*;
 
 import app.*;
 import ui.*;
 import entities.*;
-
-
-
 
 public class ModifyEmployeePage extends Page {
 
@@ -36,9 +32,8 @@ public class ModifyEmployeePage extends Page {
 
         thisPage.add(nameFieldLabel, Layout.getAddEmployeeFieldConstraints());
         thisPage.add(nameField, Layout.getAddEmployeeFieldConstraints());
-
         
-        JPanel preferencesPanel = employee.getShiftPrefs().getPreferencesPanel();
+        JPanel preferencesPanel = employee.getShiftPrefs().getShiftPrefPanel();
         thisPage.add(preferencesPanel, Layout.getEmployeePreferencesPanelConstraints());
 
         return thisPage;
