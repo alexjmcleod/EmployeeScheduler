@@ -45,7 +45,7 @@ public class Layout {
         
         GridBagConstraints c = new GridBagConstraints();
         c.weightx = 1;
-        c.weighty = 0;
+        c.weighty = 1;
         c.gridx = 0;
         c.gridy = 1;
         c.gridwidth = 12;
@@ -161,7 +161,78 @@ public class Layout {
 
         return c;
 
+    }
 
+    public static GridBagConstraints getEmployeeProfileRowConstraints() {
+        
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 0;
+        // c.weighty = 0;
+        c.gridx = 0;
+        // c.gridy = 2;
+        c.gridwidth = 12;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipadx = 20;
+        c.ipady = 15;
+        // c.insets = new Insets(40, 0, 15, 0);
+
+        return c;
+    }
+
+    public static GridBagConstraints getEmployeeProfileFieldLabelConstraints() {
+        
+        GridBagConstraints c = new GridBagConstraints();
+        // c.weightx = 0;
+        // c.weighty = 0;
+        c.gridx = 0;
+        // c.gridy = 2;
+        c.gridwidth = 4;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        // c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipadx = 20;
+        c.ipady = 15;
+        // c.insets = new Insets(10, 10, 10, 10);
+
+        return c;
+    }
+
+        public static GridBagConstraints getEmployeeProfileFieldConstraints() {
+        
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 0;
+        c.weighty = 1;
+        // c.gridx = 1;
+        // c.gridy = 2;
+        c.gridwidth = 4;
+        c.gridheight = 1;
+        // c.anchor = GridBagConstraints.LINE_START;
+        // c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipadx = 20;
+        c.ipady = 15;
+        c.insets = new Insets(10, 10, 10, 10);
+
+        return c;
+    }
+
+    public static GridBagConstraints getEmployeePreferencesPanelConstraints() {
+        
+        GridBagConstraints c = new GridBagConstraints();
+        // c.weightx = 1;
+        // c.weighty = 1;
+        c.gridx = 0;
+        // c.gridy = 2;
+        // c.gridwidth = 4;
+        // c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        // c.fill = GridBagConstraints.HORIZONTAL; 
+        // c.ipadx = 20;
+        // c.ipady = 10;
+        c.insets = new Insets(20, 0, 15, 0);
+
+        return c;
     }
 
     public static GridBagConstraints getSaveEmployeeButtonConstraints() {
@@ -182,6 +253,8 @@ public class Layout {
         return c;
 
     }
+
+
     
     
     

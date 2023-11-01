@@ -6,34 +6,27 @@ import app.*;
 import ui.*;
 import entities.*;
 
-// TODO: Refactor this so it and addemployeepage extend a common class?
+public class EditEmployeePage extends ModifyEmployeePage {
 
-public class EditEmployeePage extends Page {
-
-    EmployeeManager eManager;
-    JTextField nameField;
-    Employee employeeToEdit;
-    
+    private static String pageTitle = "Edit Employee";
+    private static String pageBody = "Use this page to edit an existing employee.";
+   
     // Constructors
 
     public EditEmployeePage(UI newUI, EmployeeManager neweManager, Employee employee) {
-        super(newUI);
-        this.setPageTitle("Edit an Existing Employee");
-        this.setPageBody("Edit an employee with the form.");
-        eManager = neweManager;
-        employeeToEdit = employee;
+        super(newUI, neweManager, employee, pageTitle, pageBody);
+        // System.out.println(String.format("In editemployeepage constructor, value of name: %s", employee.getName()));
+        // System.out.println(String.format("In editemployeepage constructor, value of name: %s", employeeToEdit.getName()));
         this.generateEditEmployeePage();
     }
 
     private void generateEditEmployeePage() {
 
-        JPanel thisPage = super.generatePage();
+        JPanel thisPage = super.generateModifyEmployeePage();
 
-        JLabel nameFieldLabel = new JLabel("Name: ");
-        nameField = new JTextField(employeeToEdit.getName(), 20);
+        // Set the form fields based on employee profile
+        nameField.setText(employee.getName());
 
-        thisPage.add(nameFieldLabel, Layout.getAddEmployeeFieldConstraints());
-        thisPage.add(nameField, Layout.getAddEmployeeFieldConstraints());
 
         JButton saveButton = new JButton("Save");
         saveButton.setBackground(Theme.getSaveButtonColor());
@@ -48,13 +41,16 @@ public class EditEmployeePage extends Page {
     class SaveButtonAction implements ActionListener {
         
         public void actionPerformed(ActionEvent event) {
+
+            // Update shift preferences
+            employee.getShiftPrefs().updateShiftPreferences();
         
             // Get form fields
             String name = nameField.getText().strip();
-            employeeToEdit.setName(name);
+            employee.setName(name);
             
             // Save the updates
-            eManager.updateEmployee(employeeToEdit);
+            eManager.updateEmployee(employee);
             
             // Tricky syntax because the UI is stored in the Page superclass
             EditEmployeePage.this.getUI().displayEmployeesPage();;

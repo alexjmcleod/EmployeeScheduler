@@ -41,6 +41,10 @@ public class Theme {
     static Color tableRowBackground = Color.WHITE;
 
 
+    // Form styles
+    static Font formFieldLabelFont = new Font("SansSerif", Font.BOLD, 14);
+
+
 
     public static JPanel getLogo() {
         
@@ -131,6 +135,10 @@ public class Theme {
 
     public static Font getSaveButtonFont() {
         return saveButtonFont;
+    }
+
+    public static Font getFormFieldLabelFont() {
+        return formFieldLabelFont;
     }
 
 

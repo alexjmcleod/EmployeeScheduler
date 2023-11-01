@@ -7,9 +7,9 @@ import app.*;
 
 public class Page {
     
-    String pageTitle = "Default";
-    String pageBody = "Default";
-    String pageMenuLabel = "Default";
+    private static String pageTitle = "Default";
+    private static String pageBody = "Default";
+    private static String pageMenuLabel = "Default";
     JPanel pagePanel;
     UI ui;
 

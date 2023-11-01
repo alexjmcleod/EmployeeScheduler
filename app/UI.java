@@ -46,7 +46,8 @@ public class UI {
 
 
         // These should be called last, lest nothing be visible
-        mainFrame.setSize(1200, 720);
+        mainFrame.setSize(1200, 800);
+        mainFrame.setMinimumSize(new Dimension(1200, 800));
         mainFrame.setVisible(true);
 
 

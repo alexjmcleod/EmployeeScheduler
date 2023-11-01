@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.io.*;
 
+// TODO: Put .ser files in a better directory
+
 public class EmployeeManager implements Serializable {
 
     ArrayList<Employee> employeeList = new ArrayList<Employee>();
