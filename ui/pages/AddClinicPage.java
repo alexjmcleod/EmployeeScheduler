@@ -2,8 +2,6 @@ package ui.pages;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.List;
-import java.util.ArrayList;
 
 import app.*;
 import ui.*;

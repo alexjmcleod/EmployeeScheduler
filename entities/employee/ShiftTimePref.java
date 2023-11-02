@@ -11,7 +11,8 @@ import java.time.format.TextStyle;
 import ui.Layout;
 import ui.Theme;
 
-
+// TODO: When program is closed and reopened, employee is not editable... I believe it has something to do with hashmap serialization/deserialization
+// TODO: 
 // TODO: input validation on preference fields
 
 public class ShiftTimePref implements Serializable {
@@ -91,10 +92,10 @@ public class ShiftTimePref implements Serializable {
         // MONDAY: {"DAY": 2}
         // DayOfWeek: {String: Integer}
         // Here we loop through each DayOfWeek
-        for (Map.Entry<DayOfWeek, LinkedHashMap<String, Integer>> dayOfWeekKey : shiftTimePreferences.entrySet()) {
+        for (Map.Entry<DayOfWeek, LinkedHashMap<String, Integer>> dayOfWeekEntry : shiftTimePreferences.entrySet()) {
 
             // Get the pretty string for this DayOfWeek
-            String dayString = dayOfWeekKey.getKey().getDisplayName(TextStyle.FULL_STANDALONE, Locale.ENGLISH);
+            String dayString = dayOfWeekEntry.getKey().getDisplayName(TextStyle.FULL_STANDALONE, Locale.ENGLISH);
 
             // Add dow as jlabel to the display
             JLabel dayLabel = new JLabel(dayString);
@@ -102,14 +103,16 @@ public class ShiftTimePref implements Serializable {
             shiftTimePrefGrid.add(dayLabel, Layout.getEmployeeProfileFieldLabelConstraints());
 
             // Here we loop through each unique shift
-            for (Map.Entry<String, Integer> uniqueShift : dayOfWeekKey.getValue().entrySet()) {
+            for (Map.Entry<String, Integer> uniqueShift : dayOfWeekEntry.getValue().entrySet()) {
                 
                 // For each shift label, generate a JTextField and add to the display
                 JTextField prefField = new JTextField(4);
 
+                // TODO: update this comment
                 // Custom property: Track which unique entry in the 2D map prefField
                 // refers to by attaching the entry to a client property
-                prefField.putClientProperty("uniqueMapEntry", uniqueShift);
+                prefField.putClientProperty("dowKey", dayOfWeekEntry.getKey()); // day of week key
+                prefField.putClientProperty("shiftKey", uniqueShift.getKey()); // shift key
 
                 // Add this field to the list of fields for use when updating values
                 shiftTimePreferenceFields.add(prefField);
@@ -134,14 +137,18 @@ public class ShiftTimePref implements Serializable {
 
             // Returns the unique entry that this field was referring to
             @SuppressWarnings("unchecked")
-            Map.Entry<String, Integer> entryToUpdate = (Map.Entry<String, Integer>) field.getClientProperty("uniqueMapEntry"); 
+            DayOfWeek entryToUpdateDOWKey = (DayOfWeek) field.getClientProperty("dowKey");
+            String entryToUpdateShiftKey = (String) field.getClientProperty("shiftKey");
 
             // Get the updated form value
             Integer updatedValue = Integer.parseInt(field.getText());
 
-            entryToUpdate.setValue(updatedValue);
+            // Find and update the entry to update
+            shiftTimePreferences
+                .get(entryToUpdateDOWKey)
+                .put(entryToUpdateShiftKey, updatedValue);
+
         }
     }
-
 
 }

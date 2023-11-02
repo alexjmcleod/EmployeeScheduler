@@ -69,9 +69,10 @@ public class ShiftLocationPref implements Serializable {
 
             JTextField prefField = new JTextField(4);
 
+            // TODO: update this comment
             // Custom property: Track which unique entry in the map prefField
             // refers to by attaching the entry to a client property
-            prefField.putClientProperty("uniqueMapEntry", location);
+            prefField.putClientProperty("locationKey", location.getKey()); // location key
 
             // Add this field to the list of fields for use when updating values
             shiftLocationPreferenceFields.add(prefField);
@@ -96,15 +97,19 @@ public class ShiftLocationPref implements Serializable {
 
             // Returns the unique entry that this field was referring to
             @SuppressWarnings("unchecked")
-            Map.Entry<String, Integer> entryToUpdate = (Map.Entry<String, Integer>) field.getClientProperty("uniqueMapEntry");
+            String entryToUpdateLocationKey = (String) field.getClientProperty("locationKey");
 
             // Get the updated form value
             Integer updatedValue = Integer.parseInt(field.getText());
 
-            entryToUpdate.setValue(updatedValue);
+            // Find and update the entry to update
+            shiftLocationPreferences.put(entryToUpdateLocationKey, updatedValue);
         }
     }
 
-
+    // Getters and setters
+    public List<JTextField> getShiftLocationPreferenceFields() {
+        return shiftLocationPreferenceFields;
+    }
     
 }
