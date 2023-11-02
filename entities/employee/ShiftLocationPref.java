@@ -90,10 +90,21 @@ public class ShiftLocationPref implements Serializable {
     }
 
 
-    // Getters and setters
-    public List<JTextField> getShiftLocationPreferenceFields() {
-        return shiftLocationPreferenceFields;
+    public void updateShiftLocationPreferences() {
+        // Loop through all the fields and update according to preferences
+        for (JTextField field : shiftLocationPreferenceFields) {
+
+            // Returns the unique entry that this field was referring to
+            @SuppressWarnings("unchecked")
+            Map.Entry<String, Integer> entryToUpdate = (Map.Entry<String, Integer>) field.getClientProperty("uniqueMapEntry");
+
+            // Get the updated form value
+            Integer updatedValue = Integer.parseInt(field.getText());
+
+            entryToUpdate.setValue(updatedValue);
+        }
     }
 
 
+    
 }

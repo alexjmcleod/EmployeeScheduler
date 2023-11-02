@@ -40,7 +40,7 @@ public class ClinicManager implements Serializable  {
 
     public void saveClinicList() {
         try {
-            FileOutputStream outputStream = new FileOutputStream("data/EmployeeData.ser");
+            FileOutputStream outputStream = new FileOutputStream("data/ClinicData.ser");
             ObjectOutputStream objectStream = new ObjectOutputStream(outputStream);
 
             objectStream.writeObject(clinicList);

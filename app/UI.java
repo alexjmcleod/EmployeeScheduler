@@ -15,6 +15,7 @@ public class UI {
     private JPanel mainWindow;
     private Page currentPage;
     private EmployeeManager employeeManager;
+    private ClinicManager clinicManager;
 
     public void startup() {
         
@@ -62,6 +63,9 @@ public class UI {
         // Populate Employees list
         employeeManager = new EmployeeManager();
 
+        // Populate Clinics list
+        clinicManager = new ClinicManager();
+
         
     }
     
@@ -92,7 +96,7 @@ public class UI {
     }
 
     public void displayClinicsPage() {
-        this.displayNewPage(new ClinicsPage(this));
+        this.displayNewPage(new ClinicsPage(this, clinicManager));
     }
 
     public void displayEmployeesPage() {
@@ -113,6 +117,14 @@ public class UI {
 
     public void displayEditEmployeePage(Employee employee) {
         this.displayNewPage(new EditEmployeePage(this, employeeManager, employee));
+    }
+
+    public void displayAddClinicPage() {
+        this.displayNewPage(new AddClinicPage(this, clinicManager));
+    }
+
+    public void displayEditClinicPage(Clinic clinic) {
+        this.displayNewPage(new EditClinicPage(this, clinicManager, clinic));
     }
 
 

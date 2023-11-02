@@ -6,6 +6,7 @@ public class Clinic implements Serializable {
     
     String name = "";
 
+    public Clinic() {}
 
     public Clinic(String newName) {
         name = newName;

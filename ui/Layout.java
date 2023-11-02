@@ -310,9 +310,110 @@ public class Layout {
 
         return c;
     }
+
+        public static GridBagConstraints getSaveClinicButtonConstraints() {
+
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 0;
+        c.weighty = 0;
+        c.gridx = 0;
+        c.gridwidth = 12;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.ipadx = 20;
+        c.ipady = 10;
+        c.insets = new Insets(40, 0, 15, 0);
+
+        return c;
+
+    }
+
+
+    public static GridBagConstraints getAddClinicButtonConstraints() {
+
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 0;
+        c.weighty = 0;
+        c.gridx = 0;
+        // c.gridy = 2;
+        c.gridwidth = 12;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.ipadx = 20;
+        c.ipady = 30;
+        c.insets = new Insets(0, 0, 15, 0);
+
+        return c;
+
+    }
     
+    public static GridBagConstraints getClinicTableNameCellConstraints() {
+        
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.weighty = 0;
+        c.gridx = 0;
+        c.gridy = 0;
+        c.gridwidth = 8;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.insets = new Insets(15, 15, 15, 15);
+
+        return c;
+
+    }
     
-    
+    public static GridBagConstraints getClinicTableEditCellConstraints() {
+
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 0;
+        c.weighty = 0;
+        c.gridx = 9;
+        c.gridy = 0;
+        c.gridwidth = 2;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_END;
+        c.insets = new Insets(15, 15, 15, 15);
+
+        return c;
+
+    }
+
+    public static GridBagConstraints getClinicTableDeleteCellConstraints() {
+
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 0;
+        c.weighty = 0;
+        c.gridx = 11;
+        c.gridy = 0;
+        c.gridwidth = 2;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_END;
+        c.insets = new Insets(15, 15, 15, 15);
+
+        return c;
+
+    }
+
+    public static GridBagConstraints getClinicTableRowConstraints() {
+
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.weighty = 0;
+        c.gridx = 0;
+        c.gridwidth = 12;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.fill = GridBagConstraints.HORIZONTAL;
+
+        return c;
+
+    }
+
+
+
+
+
 }
 
 

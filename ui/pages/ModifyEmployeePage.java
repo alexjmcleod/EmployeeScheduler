@@ -1,8 +1,8 @@
 package ui.pages;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.List;
+import java.util.ArrayList;
 
 import app.*;
 import ui.*;
@@ -13,10 +13,11 @@ public class ModifyEmployeePage extends Page {
     EmployeeManager eManager;
     JTextField nameField;
     Employee employee;
+    List<String> pageBodyStrings = new ArrayList<String>();
     
     // Constructors
 
-    public ModifyEmployeePage(UI newUI, EmployeeManager neweManager, Employee newEmployee, String pageTitle, List<String> pageBodyStrings) {
+    public ModifyEmployeePage(UI newUI, EmployeeManager neweManager, Employee newEmployee, String pageTitle) {
         super(newUI);
         this.setPageTitle(pageTitle);
         this.setPageBodyStrings(pageBodyStrings);
@@ -39,7 +40,6 @@ public class ModifyEmployeePage extends Page {
         thisPage.add(shiftTimePreferencesPanel, Layout.getEmployeePreferencesPanelConstraints());
 
         JPanel shiftLocationPreferencesPanel = employee.getShiftLocationPref().getShiftLocationPrefPanel();
-        shiftLocationPreferencesPanel.setBackground(Color.BLACK);
         thisPage.add(shiftLocationPreferencesPanel, Layout.getEmployeePreferencesPanelConstraints());
 
         return thisPage;

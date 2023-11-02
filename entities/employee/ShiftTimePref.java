@@ -128,7 +128,7 @@ public class ShiftTimePref implements Serializable {
     }
 
 
-    public void updateShiftPreferences() {
+    public void updateShiftTimePreferences() {
         // Loop through all of the fields and update according to preferences
         for (JTextField field : shiftTimePreferenceFields) {
 
@@ -140,15 +140,8 @@ public class ShiftTimePref implements Serializable {
             Integer updatedValue = Integer.parseInt(field.getText());
 
             entryToUpdate.setValue(updatedValue);
-
         }
     }
-
-
-    // Getters and setters
-    // public List<JTextField> getShiftTimePreferenceFields() {
-    //     return shiftTimePreferenceFields;
-    // }
 
 
 }

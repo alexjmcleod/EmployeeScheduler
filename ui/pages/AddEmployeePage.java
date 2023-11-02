@@ -2,6 +2,7 @@ package ui.pages;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import app.*;
@@ -13,16 +14,13 @@ import entities.*;
 public class AddEmployeePage extends ModifyEmployeePage {
 
     private static String pageTitle = "Add a New Employee";
-    private static List<String> pageBodyStrings;
 
     // Constructors
 
     public AddEmployeePage(UI newUI, EmployeeManager neweManager) {
-        super(newUI, neweManager, new Employee(), pageTitle, pageBodyStrings);
+        super(newUI, neweManager, new Employee(), pageTitle);
         
-        pageBodyStrings.add(
-            "Use this page to add a new employee."
-            );
+        pageBodyStrings.add("Use this page to add a new employee.");
         
         this.setPageBodyStrings(pageBodyStrings);
         this.generateAddEmployeePage();
@@ -41,16 +39,19 @@ public class AddEmployeePage extends ModifyEmployeePage {
 
     }
 
-    // TODO: can i refactor the add and edit employee pages into a single page given the new setup?
-
-
     // Event listeners
     class SaveButtonAction implements ActionListener {
         
         public void actionPerformed(ActionEvent event) {
+
+            // TODO: add the location preferences to the save
         
-            // Update Shift Preferences
-            employee.getShiftTimePrefs().updateShiftPreferences();
+            // Update Shift Time Preferences
+            employee.getShiftTimePrefs().updateShiftTimePreferences();
+
+            // Update Shift Location Preferences
+            employee.getShiftLocationPref().updateShiftLocationPreferences();
+            
 
             // Get form fields
             String name = nameField.getText().strip();

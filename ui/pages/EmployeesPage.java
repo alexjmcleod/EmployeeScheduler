@@ -18,7 +18,7 @@ public class EmployeesPage extends Page {
 
     // Constructors
 
-    public EmployeesPage(UI newUI, EmployeeManager newEmployeeManager) {
+    public EmployeesPage(UI newUI, EmployeeManager neweManager) {
         super(newUI);
         
         this.setPageTitle("Employees");
@@ -27,7 +27,7 @@ public class EmployeesPage extends Page {
         pageBodyStrings.add("Add or edit employees here.");
         this.setPageBodyStrings(pageBodyStrings);
 
-        eManager = newEmployeeManager;
+        eManager = neweManager;
         this.generateEmployeesPage();
 
     }
@@ -115,7 +115,7 @@ public class EmployeesPage extends Page {
         }
 
         public void actionPerformed(ActionEvent event) {
-            System.out.println(String.format("Edit: %s", employeeToEdit.getName()));
+            // System.out.println(String.format("Edit: %s", employeeToEdit.getName()));
             EmployeesPage.this.getUI().displayEditEmployeePage(employeeToEdit);
         }
 

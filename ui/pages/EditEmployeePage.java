@@ -2,6 +2,7 @@ package ui.pages;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.List;
+import java.util.ArrayList;
 
 import app.*;
 import ui.*;
@@ -10,13 +11,11 @@ import entities.*;
 public class EditEmployeePage extends ModifyEmployeePage {
 
     private static String pageTitle = "Edit Employee";
-    private static List<String> pageBodyStrings;
    
     // Constructors
 
     public EditEmployeePage(UI newUI, EmployeeManager neweManager, Employee employee) {
-        
-        super(newUI, neweManager, employee, pageTitle, pageBodyStrings);
+        super(newUI, neweManager, employee, pageTitle);
 
         pageBodyStrings.add("Use this page to edit an existing employee.");
         this.setPageBodyStrings(pageBodyStrings);
@@ -46,9 +45,12 @@ public class EditEmployeePage extends ModifyEmployeePage {
         public void actionPerformed(ActionEvent event) {
 
             // Update shift preferences
-            employee.getShiftTimePrefs().updateShiftPreferences();
+            employee.getShiftTimePrefs().updateShiftTimePreferences();
+
+            // Update Shift Location Preferences
+            employee.getShiftLocationPref().updateShiftLocationPreferences();
         
-            // Get form fields
+            // Update name
             String name = nameField.getText().strip();
             employee.setName(name);
             
