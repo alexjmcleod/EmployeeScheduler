@@ -11,8 +11,6 @@ import java.time.format.TextStyle;
 import ui.Layout;
 import ui.Theme;
 
-// TODO: When program is closed and reopened, employee is not editable... I believe it has something to do with hashmap serialization/deserialization
-// TODO: 
 // TODO: input validation on preference fields
 
 public class ShiftTimePref implements Serializable {
@@ -108,9 +106,8 @@ public class ShiftTimePref implements Serializable {
                 // For each shift label, generate a JTextField and add to the display
                 JTextField prefField = new JTextField(4);
 
-                // TODO: update this comment
                 // Custom property: Track which unique entry in the 2D map prefField
-                // refers to by attaching the entry to a client property
+                // refers to by storing the keys for each map as custom properties
                 prefField.putClientProperty("dowKey", dayOfWeekEntry.getKey()); // day of week key
                 prefField.putClientProperty("shiftKey", uniqueShift.getKey()); // shift key
 
@@ -135,8 +132,8 @@ public class ShiftTimePref implements Serializable {
         // Loop through all of the fields and update according to preferences
         for (JTextField field : shiftTimePreferenceFields) {
 
-            // Returns the unique entry that this field was referring to
-            @SuppressWarnings("unchecked")
+            // Get the keys for both entries in the 2D array to find a unique entry
+            // that this field refers to
             DayOfWeek entryToUpdateDOWKey = (DayOfWeek) field.getClientProperty("dowKey");
             String entryToUpdateShiftKey = (String) field.getClientProperty("shiftKey");
 

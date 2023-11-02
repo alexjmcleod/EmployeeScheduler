@@ -41,8 +41,6 @@ public class AddEmployeePage extends ModifyEmployeePage {
     class SaveButtonAction implements ActionListener {
         
         public void actionPerformed(ActionEvent event) {
-
-            // TODO: add the location preferences to the save
         
             // Update Shift Time Preferences
             employee.getShiftTimePrefs().updateShiftTimePreferences();
