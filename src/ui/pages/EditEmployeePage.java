@@ -1,10 +1,14 @@
 package ui.pages;
 import javax.swing.*;
 import java.awt.event.*;
+import java.time.DayOfWeek;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import entities.*;
 import startup.*;
 import ui.*;
+import utilities.JSONExport.*;
 
 public class EditEmployeePage extends ModifyEmployeePage {
 
@@ -35,6 +39,13 @@ public class EditEmployeePage extends ModifyEmployeePage {
         
         thisPage.add(saveButton, Layout.getSaveEmployeeButtonConstraints());
 
+        JButton exportButton = new JButton("Export Location Preferences to JSON");
+        exportButton.setBackground(Theme.getSaveButtonColor());
+        exportButton.setFont(Theme.getSaveButtonFont());
+        exportButton.addActionListener(new ExportButtonAction());
+        
+        thisPage.add(exportButton, Layout.getSaveEmployeeButtonConstraints());
+
     }
 
     // Event listeners
@@ -59,6 +70,30 @@ public class EditEmployeePage extends ModifyEmployeePage {
             EditEmployeePage.this.getUI().displayEmployeesPage();;
         }
 
+    }
+
+    class ExportButtonAction implements ActionListener {
+
+        public void actionPerformed(ActionEvent event) {
+
+            // Generate JSON string
+            // Get shift preferences
+
+            Map<String, Integer> shiftLocationPreferences = employee.getShiftLocationPref().getShiftLocationPreferences();
+
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.append("{ \"shiftLocationPreferences\": { \"Arvada\": \"");
+            stringBuilder.append(Integer.toString(shiftLocationPreferences.get("ARVADA")));
+            stringBuilder.append("\",\"Brighton\":\"");
+            stringBuilder.append(Integer.toString(shiftLocationPreferences.get("BRIGHTON")));
+            stringBuilder.append("\",\"Park Hill\":\"");
+            stringBuilder.append(Integer.toString(shiftLocationPreferences.get("PARKHILL")));
+            stringBuilder.append("\"}}");
+            
+            new JSONExport(stringBuilder.toString());
+
+        }
 
     }
 

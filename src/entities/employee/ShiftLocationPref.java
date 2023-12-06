@@ -111,5 +111,9 @@ public class ShiftLocationPref implements Serializable {
     public List<JTextField> getShiftLocationPreferenceFields() {
         return shiftLocationPreferenceFields;
     }
+
+    public Map<String, Integer> getShiftLocationPreferences() {
+        return shiftLocationPreferences;
+    }
     
 }

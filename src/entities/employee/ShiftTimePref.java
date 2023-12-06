@@ -149,4 +149,8 @@ public class ShiftTimePref implements Serializable {
         }
     }
 
+    public Map<DayOfWeek, LinkedHashMap<String, Integer>> getShiftTimePreferences() {
+        return shiftTimePreferences;
+    }
+
 }
