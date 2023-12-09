@@ -206,10 +206,7 @@ public class GeneratePage extends Page {
 
     class GenerateScheduleAction implements ActionListener {
         public void actionPerformed(ActionEvent event) {
-            // Generate the schedule
-            GeneratePage.this.generateSchedule();
-            // Regenerate this page
-            GeneratePage.this.generateGeneratePage();
+            GeneratePage.this.getUI().displayGeneratePage();
         }
     }
 
