@@ -18,12 +18,12 @@ public class ModifyClinicPage extends Page{
     List<String> pageBodyStrings = new ArrayList<String>();
 
     // Constructors
-    public ModifyClinicPage(UI newUI, ClinicManager newcManager, Clinic newClinic, String pageTitle) {
+    public ModifyClinicPage(UI newUI, ClinicManager cManager, Clinic clinic, String pageTitle) {
         super(newUI);
         this.setPageTitle(pageTitle);
         this.setPageBodyStrings(pageBodyStrings);
-        clinic = newClinic;
-        cManager = newcManager;
+        this.clinic = clinic;
+        this.cManager = cManager;
         this.generateModifyClinicPage();
     }
 
@@ -39,6 +39,9 @@ public class ModifyClinicPage extends Page{
 
         // Insert common elements here
 
+        // Add required shifts fields
+        JPanel shiftReqPanel = clinic.getShiftsRequired().getShiftRequirementsPanel();
+        thisPage.add(shiftReqPanel, Layout.getEmployeePreferencesPanelConstraints());
 
         return thisPage;
 

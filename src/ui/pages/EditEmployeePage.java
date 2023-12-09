@@ -1,8 +1,7 @@
 package ui.pages;
 import javax.swing.*;
+
 import java.awt.event.*;
-import java.time.DayOfWeek;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import entities.*;

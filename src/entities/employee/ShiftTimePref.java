@@ -153,4 +153,8 @@ public class ShiftTimePref implements Serializable {
         return shiftTimePreferences;
     }
 
+    public Integer getShiftTimePreference(DayOfWeek dow, String shift) {
+        return shiftTimePreferences.get(dow).get(shift);
+    }
+
 }

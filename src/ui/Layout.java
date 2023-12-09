@@ -411,8 +411,116 @@ public class Layout {
     }
 
 
+    public static GridBagConstraints getShiftReqPanelHeadingPanelConstraints() {
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.gridx = 0;
+        c.gridy = 1;
+        c.gridwidth = 12;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipady = 15;
+
+        return c;
+    }
+
+    public static GridBagConstraints getShiftReqPanelHeadingLabelConstraints() {
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.gridx = 0;
+        c.anchor = GridBagConstraints.LINE_START;
+
+        return c;
+    }
 
 
+    public static GridBagConstraints getClinicProfileRowConstraints() {
+        
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 0;
+        c.gridx = 0;
+        c.gridwidth = 12;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipadx = 20;
+        c.ipady = 15;
+
+        return c;
+    }
+
+    public static GridBagConstraints getClinicProfileFieldLabelConstraints() {
+        
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = 0;
+        c.gridwidth = 4;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.ipadx = 20;
+
+        return c;
+    }
+
+        public static GridBagConstraints getClinicProfileFieldConstraints() {
+        
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 0;
+        c.weighty = 1;
+        c.gridwidth = 4;
+        c.gridheight = 1;
+        c.ipadx = 20;
+        c.ipady = 15;
+        c.insets = new Insets(10, 10, 10, 10);
+
+        return c;
+    }
+
+    public static GridBagConstraints getShiftReqPanelGridConstraints() {
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.gridx = 0;
+        c.gridy = 2;
+        c.gridwidth = 12;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipadx = 20;
+        c.ipady = 15;
+
+        return c;
+    }
+
+    public static GridBagConstraints getGenerateCalenderConstraints() {
+
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.weighty = 0;
+        c.gridx = 0;
+        c.gridwidth = 12;
+        c.gridheight = 1;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.fill = GridBagConstraints.HORIZONTAL;
+
+        return c;
+
+    }
+
+    public static GridBagConstraints getGenerateCalenderCellConstraints() {
+
+        GridBagConstraints c = new GridBagConstraints();
+        c.weightx = 1;
+        c.weighty = 0;
+        c.gridx = 0;
+        c.gridwidth = 4;
+        c.gridheight = 1;
+        // c.anchor = GridBagConstraints.LINE_START;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.ipadx = 20;
+
+        return c;
+
+    }
 
 }
 

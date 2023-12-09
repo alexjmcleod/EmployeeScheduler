@@ -116,4 +116,7 @@ public class ShiftLocationPref implements Serializable {
         return shiftLocationPreferences;
     }
     
+    public Integer getShiftLocationPreference(String location) {
+        return shiftLocationPreferences.get(location);
+    }
 }

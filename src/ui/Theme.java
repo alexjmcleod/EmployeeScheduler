@@ -46,6 +46,10 @@ public class Theme {
     static Font formFieldLabelFont = new Font("SansSerif", Font.BOLD, 14);
 
 
+    // Schedule styles
+    static Font scheduleDOWFont = new Font("SansSerif", Font.BOLD, 20);
+    static Font scheduleClinicFont = new Font("SansSerif", Font.BOLD, 16);
+
 
     public static JPanel getLogo() {
         
@@ -75,7 +79,13 @@ public class Theme {
         return logoConstraints;
     }
     
+    public static Font getScheduleDOWFont() {
+        return scheduleDOWFont;
+    }
 
+    public static Font getScheduleClinicFont() {
+        return scheduleClinicFont;
+    }
 
     public static Color getPrimaryBG() {
         return primaryBG;

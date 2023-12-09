@@ -42,6 +42,7 @@ public class EditClinicPage extends ModifyClinicPage {
         public void actionPerformed(ActionEvent event) {
 
             // Update shift requirements
+            clinic.getShiftsRequired().updateShiftRequirements();
 
             // Update name
             String name = nameField.getText().strip();
@@ -54,7 +55,7 @@ public class EditClinicPage extends ModifyClinicPage {
             EditClinicPage.this.getUI().displayClinicsPage();
         }
     }
-    
+   
 
 
 }
