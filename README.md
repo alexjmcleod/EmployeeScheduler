@@ -4,12 +4,15 @@ This application can be used to populate an employee schedule based on a user-se
 
 ### Clinics
 **Name:** The name of the clinic.
+
 **Shift Requirements:** A grid of text fields, where each field represents a shift (day, swing, or night) for a particular day of the week (Mon - Sun). The integer within a field represents the number of doctors that are required for that shift.
 
 
 ### Employees
 **Name:** The name of the employee.
+
 **Shift Time Preferences:** A grid of text fields, where each field represents a shift (day, swing, or night) for a particular day of the week (Mon - Sun). The integer within a field represents the employee's availability and preference for being scheduled for that shift. A value of 0 indicates the employee is not available. Remaining valid values are 1, 2 or 3 where 1 represents low preference and 3 represents high preference.
+
 **Shift Location Preferences:** A list of text fields, where each field represents a clinic that needs to be staffed. The integer within a field represents the employee's availability and preference for being scheduled at that location. A value of 0 indicates the employee is not available. Remaining valid values are 1, 2 or 3 where 1 represents low preference and 3 represents high preference.
 
 
